@@ -1,0 +1,14 @@
+<html>
+
+<body>
+    <form>
+        <input type="text" name="q">
+        <button>Search</button>
+    </form>
+    {% for video in videos %}
+        <p> {{video.title}} </p>
+        <p> {{video.description}} </p>
+    {% endfor %}
+</body>
+
+</html>
