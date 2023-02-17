@@ -11,6 +11,8 @@
         <p>rank = {{video.rank}}</p>
         <p> title {{video.title}} </p>
         <p> description =  {{video.description}} </p>
+        {{video.headline|safe}}
+        
         </div>
         {% endfor %}
     </div>

@@ -12,7 +12,11 @@ def index(request):
         """ full search """
         # videos = Video.objects.annotate(search=vector).filter(search=query)
         """ search based rank"""
-        videos = Video.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.001).order_by('-rank')
+        # videos = Video.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.001).order_by('-rank')
+        """ add headline """
+        search_headline = SearchHeadline('description', query)
+        videos = Video.objects.annotate(rank=SearchRank(vector, query)).annotate(headline=search_headline).filter(rank__gte=0.001).order_by('-rank')
+
     else:
         videos = Video.objects.all()
 
