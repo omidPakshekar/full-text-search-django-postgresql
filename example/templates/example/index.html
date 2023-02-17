@@ -5,10 +5,14 @@
         <input type="text" name="q">
         <button>Search</button>
     </form>
+    <div  >
     {% for video in videos %}
-        <p> {{video.title}} </p>
-        <p> {{video.description}} </p>
-    {% endfor %}
+        <div style="border: 1px solid green;">
+        <p> title {{video.title}} </p>
+        <p> description =  {{video.description}} </p>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 
 </html>
